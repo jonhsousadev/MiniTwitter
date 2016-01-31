@@ -1,9 +1,18 @@
 Rails.application.routes.draw do
-  resources :articles
+  get 'users/index'
+
+  get 'users/:id/follow', to: 'users#follow', as: :follow
+
+
   resources :articles
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
-  resources :articles
+  resources :users do
+    member do
+        post :follow
+    end
+  end
     root 'articles#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
