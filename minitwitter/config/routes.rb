@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'home/index'
+
   get 'users/index'
 
   get 'users/:id/follow', to: 'users#follow', as: :follow
@@ -15,7 +17,7 @@ Rails.application.routes.draw do
         post :show
     end
   end
-    root 'articles#index'
+    root 'home#index'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
