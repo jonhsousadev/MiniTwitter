@@ -47,5 +47,5 @@ end
 # Auth generating gem
 gem 'devise'
 gem 'omniauth'
-gem 'omniauth-digitalocean'
+gem 'omniauth-facebook'
 
