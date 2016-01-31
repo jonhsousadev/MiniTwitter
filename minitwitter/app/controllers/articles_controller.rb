@@ -6,6 +6,7 @@ class ArticlesController < ApplicationController
   def index
       @articles = current_user.articles
       @users = User.all
+      @currentUserFollows = Follow.where(follower_id: current_user.id)
   end
 
   # GET /articles/1
