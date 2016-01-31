@@ -1,11 +1,12 @@
 <p id="notice"><%= notice %></p>
-<h1>Nosso Usuários</h1>
+<h1>Nossos Usuários</h1>
     <table>
     <% @users.each do |user| %>
       <tr>
           <td><%= user.email %></td>
           <%if !current_user.follows?(user)%>
               <td><%= link_to 'follow', follow_path(user)%></td>
+              <td><%= link_to 'show', show_path(user)%></td>
           <%end%>
       </tr>
     <% end %>
@@ -36,14 +37,20 @@
   <tbody>
 
       <% @articles.each do |article| %>
-          <tr>
-            <td><%= article.title %></td>
-            <td><%= article.content %></td>
-            <td><%= article.user %></td>
-            <td><%= link_to 'Show', article %></td>
-            <td><%= link_to 'Edit', edit_article_path(article) %></td>
-            <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-          </tr>
+          <% @users.each do |user| %>
+      <%if user.id == article.user_id and current_user.follows?(user)%>
+              <tr>
+                <td><%= article.title %></td>
+                <td><%= article.content %></td>
+                <td><%= article.user %></td>
+                <td><%= link_to 'Show', article %></td>
+                <%if article.user_id == current_user.id%>
+                    <td><%= link_to 'Edit', edit_article_path(article) %></td>
+                    <td><%= link_to 'Destroy', article, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                 <%end%>
+              </tr>
+            <%end%>
+        <%end%>
     <% end %>
   </tbody>
 </table>

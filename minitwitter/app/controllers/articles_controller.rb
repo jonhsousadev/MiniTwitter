@@ -1,12 +1,10 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: [:show, :edit, :update, :destroy]
-
   # GET /articles
   # GET /articles.json
   def index
-      @articles = current_user.articles
+      @articles = Article.all
       @users = User.all
-      @currentUserFollows = Follow.where(follower_id: current_user.id)
   end
 
   # GET /articles/1

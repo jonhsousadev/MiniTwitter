@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   get 'users/:id/follow', to: 'users#follow', as: :follow
   get 'users/:id/unfollow', to: 'users#unfollow', as: :unfollow
+  get 'users/:id/show', to: 'users#show', as: :show
 
 
   resources :articles
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
     member do
         post :follow
         post :unfollow
+        post :show
     end
   end
     root 'articles#index'
