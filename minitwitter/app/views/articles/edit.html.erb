@@ -1,6 +1,13 @@
-<h1>Editing Article</h1>
+<div class="row">
+  <div class="medium-2 columns" >
+      <p></p>
+  </div>
+  <div class="medium-8 columns" style="background-color:light-gray;">
+<div class="panel">
+
+<h1>Editar Postagem</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @article %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Show', @article, class: "button" %> |
+<%= link_to 'Back', articles_path, class: "button" %>

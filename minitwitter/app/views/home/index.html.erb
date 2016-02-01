@@ -1,2 +1,28 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<div class="row">
+      <div class="large-4 medium-4 small-12 columns center">
+          <div class="panel">
+            <%= form_for(:user, :url => session_path(:user)) do |f| %>
+             <fieldset>
+                 <h5>Bem vindo!</h5>
+                  <%= f.text_field :email %>
+                  <%= f.password_field :password %>
+                  <%= f.check_box :remember_me %>
+                  <%= f.label :remember_me %>
+                 <%= f.submit 'Entrar', class: "button" %>
+                 </br><%= link_to "Esqueceu sua senha?", new_password_path(:user) ,class: "button alert"%>
+                  <%= link_to "Crie uma conta", new_registration_path(:user), class: "button success" %><br />
+             </fieldset>
+            <% end %>
+       </div>
+    </div>
+        <div class="large-8 medium-8 small-12 columns center">
+
+                      <% @articles.each do |article| %>
+                        <div class="panel">
+                          <h3><%= article.title %></h3>
+                          <p><%= article.content %></p>
+                        </div>
+                    <% end %>
+    </div>
+</div>
+
