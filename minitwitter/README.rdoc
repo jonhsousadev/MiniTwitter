@@ -1,6 +1,6 @@
 == README
 
-MiniTwitter é uma aplicação baseada em Ruby on Rails, feita para simular um ambiente de microblog colaborativo, porruíndo algumas funcionalidades próximas ao Twitter original.
+MiniTwitter é uma aplicação baseada em Ruby on Rails, feita para simular um ambiente de microblog colaborativo, possuíndo algumas funcionalidades próximas ao Twitter original.
 
 O sistema possui dois estados que mudam a experiência de quem o utiliza:
 
